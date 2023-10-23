@@ -191,13 +191,57 @@ int searchMin(int matritsa[][10])
 }
 int upCount(int matritsa[][10], int i, int j) 
 {
-	if (i == 0  )
+	if (i == 0 && j == 0 )
 	{
 		for (int h = 0; h != 2;h++) 
 		{
-			for (int f = -1; f != 2;f++) 
+			for (int f = 0; f != 2;f++) 
 			{
 				if (matritsa[i + h][j + f]!=10) { matritsa[i + h][j + f] = matritsa[i + h][j + f] + 1; }
+			}
+		}
+	}
+	else if (i == 0 && j == 9)
+	{
+
+		for (int h = 0; h != 2;h++)
+		{
+			for (int f = -1; f != 1;f++)
+			{
+				if (matritsa[i + h][j + f] != 10) { matritsa[i + h][j + f] = matritsa[i + h][j + f] + 1; }
+			}
+		}
+	}
+	else if (i == 9 && j == 0)
+	{
+
+		for (int h = -1; h != 1;h++)
+		{
+			for (int f = 0; f != 2;f++)
+			{
+				if (matritsa[i + h][j + f] != 10) { matritsa[i + h][j + f] = matritsa[i + h][j + f] + 1; }
+			}
+		}
+	}
+	else if (i == 0 && j == 9)
+	{
+
+		for (int h = -1; h != 1;h++)
+		{
+			for (int f = -1; f != 1;f++)
+			{
+				if (matritsa[i + h][j + f] != 10) { matritsa[i + h][j + f] = matritsa[i + h][j + f] + 1; }
+			}
+		}
+	}
+	else if (i == 0)
+	{
+
+		for (int h = 0; h != 2;h++)
+		{
+			for (int f = -1; f != 2;f++)
+			{
+				if (matritsa[i + h][j + f] != 10) { matritsa[i + h][j + f] = matritsa[i + h][j + f] + 1; }
 			}
 		}
 	}
@@ -252,7 +296,8 @@ int upCount(int matritsa[][10], int i, int j)
 		}
 	}
 }
-/*int openZero(HDC *dc, int matritsa[][10], int i, int j, wchar_t str)
+
+/*int openZero(HDC dc, int matritsa[][10], int i, int j, wchar_t str)
 {
 	HFONT hFont;
 	for (int h = -1; h != 2; h++)
@@ -260,6 +305,7 @@ int upCount(int matritsa[][10], int i, int j)
 		for (int f = -1; f != 2; f++)
 		{
 			WinShow(dc, i + h * 50, j + f * 50, 3);
+
 			hFont = CreateFont(20, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS,
 				CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_SWISS, L"Arial");
 			SetBkMode(dc, TRANSPARENT);
